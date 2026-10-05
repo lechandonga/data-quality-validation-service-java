@@ -1,15 +1,16 @@
 package com.github.lechandonga.dataqualityvalidationservicejava.tests;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Timeout;
 import org.springframework.boot.test.context.SpringBootTest;
 
-/**
- * @author Vincent
- * @version 1.0
- */
-@SpringBootTest
-public class ApplicationTests {
+import java.util.concurrent.TimeUnit;
+
+@Timeout(value = 60, unit = TimeUnit.SECONDS)
+@SpringBootTest(properties = "spring.profiles.active=test")
+class ApplicationTests {
+
     @Test
-    public void contentLoad() {
+    void contextLoads() {
     }
 }
