@@ -1,0 +1,16 @@
+<configuration>
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} %-5level [%thread] %logger{24} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- 业务覆盖日志单独以高亮前缀输出，方便从单测日志核对覆盖了哪些业务与用例 -->
+    <logger name="BUSINESS-COVERAGE" level="INFO" additivity="false">
+        <appender-ref ref="STDOUT"/>
+    </logger>
+
+    <root level="INFO">
+        <appender-ref ref="STDOUT"/>
+    </root>
+</configuration>
